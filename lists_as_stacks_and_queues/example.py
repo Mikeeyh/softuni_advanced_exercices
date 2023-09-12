@@ -1,3 +1,7 @@
+from collections import deque
+
+# STACKS
+
 stack = []
 
 stack.append(5)
@@ -10,3 +14,11 @@ print(stack.pop())
 while stack:
     print(stack.pop())
     print(stack)
+
+# QUEUES
+
+# from collections import deque
+queue = deque(['Eric', 'John', 'Mike'])
+queue.append('Maraya')
+queue.popleft()
+print(queue)
