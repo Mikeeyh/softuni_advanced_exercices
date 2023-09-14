@@ -6,9 +6,9 @@ racks = 0
 while clothes_stack:
     racks += 1
     current_rack_capacity = rack_capacity
-    while clothes_stack and clothes_stack[-1] <= current_rack_capacity
+    while clothes_stack and clothes_stack[-1] <= current_rack_capacity:
         current_rack_capacity -= clothes_stack.pop()
-
+        # we just check the element we will work with clothes_stack[-1]
 print(racks)
 
 # OR -------------------------------------------------------------------------------------------------
