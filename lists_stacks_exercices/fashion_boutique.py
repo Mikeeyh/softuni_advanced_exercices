@@ -1,15 +1,16 @@
-clothes = [map(int, input().split())]
+clothes = list(map(int, input().split()))
 rack_capacity = int(input())
+
 rack_count = 0
+current_rack = 0
 
-while clothes:
-    capacity_left = rack_capacity
-
-    if capacity_left > clothes:
-        capacity_left -= clothes
-        clothes.pop()
+for cloth in reversed(clothes):
+    if current_rack + cloth <= rack_capacity:
+        current_rack += cloth
     else:
         rack_count += 1
-        rack_capacity = capacity_left
+        current_rack = cloth
+
+rack_count += 1  # Add one for the last rack
 
 print(rack_count)
