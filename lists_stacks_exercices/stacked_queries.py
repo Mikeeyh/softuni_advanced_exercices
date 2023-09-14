@@ -1,4 +1,9 @@
 from collections import deque
+
+
+
+# OR -----------------------------------------------------------------------------------------
+
 queue = deque()
 number_of_lines = int(input())
 final_stack = []
@@ -28,7 +33,6 @@ for i in range(number_of_lines):
 for i in range(len(queue)):
     final_stack = list(map(str, queue)) # or final_stack.append(str(queue.popleft()))
 print(", ".join(final_stack[::-1]))
-
 
 # 9
 # 1 97
