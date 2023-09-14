@@ -1,5 +1,3 @@
-from collections import deque
-
 n = int(input())
 my_stack = []
 
@@ -24,6 +22,7 @@ while my_stack:
 
 # OR using a queue-----------------------------------------------------------------------------------------
 
+from collections import deque
 queue = deque()
 number_of_lines = int(input())
 final_stack = []
