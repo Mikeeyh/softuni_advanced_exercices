@@ -12,4 +12,5 @@ names.index("Gosho") # returns the index of a particular element // index = 1 in
 nums = (1, 2, 3)
 a, b, c = nums # returns a = 1, b = 2, c = 3 /// if we use less or more variables to unpack it will return an error
 
-
+# convert a list to a tuple with function 'tuple' + comprehension
+numbers = tuple(int(number) for number in input().split())
