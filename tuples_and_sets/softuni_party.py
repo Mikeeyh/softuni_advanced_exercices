@@ -26,6 +26,24 @@ for guest in vip:
 for guest in regular:
     print(guest)
 
+# OR -------------------------------------------------------------
+
+n = int(input())
+reservation = set()
+
+for _ in range(n):
+    rev_number = input()
+    reservation.add(rev_number)
+
+guest = input()
+while guest != 'END':
+    reservation.remove(guest)
+
+print(len(reservation))
+
+for num in sorted(reservation):
+    print(num)
+
 # 5
 # 7IK9Yo0h
 # 9NoBUajQ
