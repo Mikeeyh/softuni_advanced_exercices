@@ -8,6 +8,19 @@ for _ in range(n):
 
 for chemical in chemical_compounds:
     print(chemical)
+
+# OR -------------------------------------------------------------------
+
+n = int(input())
+chemicals = set()
+
+for _ in range(n):
+    chemical_compound = input().split()
+    for element in chemical_compound:
+        chemicals.add(element)
+
+print(*chemicals, sep='\n')
+
 # 4
 # Ce O
 # Mo O Ce
