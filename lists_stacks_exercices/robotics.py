@@ -1,39 +1,39 @@
-from datetime import datetime, timedelta
+from collections import deque
 
-# Parse robot names and processing times
-robots_info = input().split(";")
-robots = {}
+products = deque()
+robots = []
 
-for robot_info in robots_info:
-    name, processing_time = robot_info.split("-")
-    robots[name] = int(processing_time)
+robots_data = input().split(';')
+hours, minutes, seconds = [int(x) for x in input().split(':')]
 
-# Parse the starting time
-start_time_str = input()
-start_time = datetime.strptime(start_time_str, "%H:%M:%S") + timedelta(seconds=1)
+start_time_seconds = hours * 3600 + minutes * 60 + seconds
 
-# Initialize the assembly line queue
-assembly_line = []
+for robot in robots_data:
+    robot_name, processing_time = robot.split('-')
+    busy_until_time = 0
+    robots.append({'name': robot_name, 'data': [int(processing_time), busy_until_time]})
 
-# Process products until the "End" command
 while True:
     product = input()
-    if product == "End":
+    if product == 'End':
         break
+    products.append(product)
 
-    assembly_line.append(product)
+while products:
+    start_time_seconds += 1
+    current_product = products.popleft()
+    is_taken = False
 
-# Process products with robots
-robot_processing_time = {robot: 0 for robot in robots}
-
-while assembly_line:
-    current_product = assembly_line.pop(0)
-
-    for robot_name, processing_time in robots.items():
-        if robot_processing_time[robot_name] <= 0:
-            print(f"{robot_name} - {current_product} [{start_time.strftime('%H:%M:%S')}]")
-            robot_processing_time[robot_name] = processing_time
+    for robot in robots:
+        if robot['data'][1] <= start_time_seconds:
+            robot['data'][1] = start_time_seconds + robot['data'][0]
+            h = start_time_seconds // 3600
+            m = (start_time_seconds % 3600) // 60
+            s = (start_time_seconds % 3600) % 60
+            h %= 24 # to set h = 0 when it becomes +24
+            print(f"{robot['name']} - {current_product} [{h:02d}:{m:02d}:{s:02d}]")
+            is_taken = True
             break
 
-    start_time += timedelta(seconds=1)
-
+    if not is_taken:
+        products.append(current_product)
