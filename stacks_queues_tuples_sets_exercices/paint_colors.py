@@ -20,3 +20,14 @@ while colors_string:
     else:
         if len(first_str) > 1:
             colors_string.insert(len(colors_string) // 2, first_str[:-1])
+        if len(last_str) > 1:
+            colors_string.insert(len(colors_string) // 2, last_str[:-1])
+
+for color in collected_colors:
+    if color in secondary_colors:
+        for el in secondary_colors[color]:
+            if el not in collected_colors:
+                collected_colors.remove(color)
+                break
+
+print(collected_colors)
