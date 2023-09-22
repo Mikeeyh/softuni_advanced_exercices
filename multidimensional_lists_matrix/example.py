@@ -35,3 +35,4 @@ for row_index in range(rows_count):
         number += 1
 
 print(matrix)  # returns [[1, 2, 3], [4, 5, 6]]
+
