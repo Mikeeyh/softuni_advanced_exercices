@@ -8,4 +8,3 @@ for row in range(rows - 1):
             count += 1
 
 print(count)
-ti666
