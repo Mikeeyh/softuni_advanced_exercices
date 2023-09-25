@@ -6,7 +6,7 @@ text = deque(input())
 matrix = []
 
 for row in range(rows):
-    matrix.append(['' * columns])  # for ech row we append spaces multiplied by our columns
+    matrix.append([''] * columns)  # for each row we append spaces multiplied by our columns
     for column in range(columns):
         if row % 2 == 0:
             matrix[row][column] = text[0]
