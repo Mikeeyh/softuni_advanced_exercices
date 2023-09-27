@@ -1,4 +1,16 @@
 def recursive_power(number, power):
+    if power == 1:  # 1 because this is the last possible power, if we have 0 it will give us 1
+        return number
+    return number * recursive_power(number, power - 1)
+
+
+print(recursive_power(2, 10))
+print(recursive_power(10, 100))
+
+# OR -------------------------------------------------------------------------------------------
+
+
+def recursive_power(number, power):
     # Base case: If the power is 0, return 1
     if power == 0:
         return 1

@@ -1,3 +1,4 @@
+# ARGS ------------------------------------------------------------------------------------
 def sum_nums(*args):
     return args
 
@@ -14,6 +15,8 @@ def sum_nums(a, b, *args):
 print(sum_nums(5, 6, 7))  # prints (7,) because the function returns the args only
 print(sum_nums(1, 2))  # prints empty tuple ()
 print(sum_nums(1, 2, 3, 4, 5, 6, 7, 8, 9))  # prints (3, 4, 5, 6, 7, 8, 9) because 1 and 2 are packed outside
+
+# KWARGS -------------------------------------------------------------------------------
 
 
 def example_function(**kwargs):
@@ -62,7 +65,7 @@ person = {'age': 20, 'name': 'Peter'}
 some_func(person['name'], person['age'])  # Peter is 20 years old
 some_func(**person)  # Peter is 20 years old
 
-# UNPACKING:
+# UNPACKING: -------------------------------------------------------------------------------------------------
 
 
 def get_info(name, town, age):
@@ -83,7 +86,7 @@ def sum_nums(*args):
 
 sum_nums(*[el for el in range(0, 10)])  # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-# How to return and print a nested function
+# How to return and print a nested function ----------------------------------------------------------------
 
 
 def greeting(name):
@@ -95,3 +98,19 @@ def greeting(name):
 
 
 print(greeting("Peter")())
+
+# RECURSION -------------------------------------------------------------------------------------
+
+# factorial of 5 -> 1 * 2 * 3 * 4 * 5
+
+
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n - 1)
+
+
+print(fact(5))
+
+
+
