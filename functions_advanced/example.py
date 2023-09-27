@@ -16,3 +16,49 @@ print(sum_nums(1, 2))  # prints empty tuple ()
 print(sum_nums(1, 2, 3, 4, 5, 6, 7, 8, 9))  # prints (3, 4, 5, 6, 7, 8, 9) because 1 and 2 are packed outside
 
 
+def example_function(**kwargs):
+    return kwargs
+
+
+print(example_function(num=5, name='Peter', id=2))  # creates a dictionary
+# {'num': 5, 'name': 'Peter', 'id': 2}
+
+
+def example_function(**kwargs):
+    for key, value in kwargs.items():
+        print(key, value)
+    return kwargs
+# num 5
+# name Peter
+# id 2
+
+
+def example_function(a, *args, **kwargs):
+    print(a)
+    print(args)
+    print(kwargs)
+    return kwargs
+
+
+example_function(a=5, num=5, name='Peter', id=2)
+# 5
+# ()
+# {'num': 5, 'name': 'Peter', 'id': 2}
+
+
+def print_nums(a, b, c):
+    print(a, b, c)
+
+
+nums = [1, 2, 3]
+print_nums(*nums)  # unpacking: prints 1 2 3
+
+
+def some_func(name, age):
+    print(f"{name} is {age} years old")
+
+
+person = {'age': 20, 'name': 'Peter'}
+some_func(person['name'], person['age'])  # Peter is 20 years old
+some_func(**person)  # Peter is 20 years old
+
