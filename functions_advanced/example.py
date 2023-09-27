@@ -33,14 +33,14 @@ def example_function(**kwargs):
 # id 2
 
 
-def example_function(a, *args, **kwargs):
+def ex_function(a, *args, **kwargs):
     print(a)
     print(args)
     print(kwargs)
     return kwargs
 
 
-example_function(a=5, num=5, name='Peter', id=2)
+ex_function(a=5, num=5, name='Peter', id=2)
 # 5
 # ()
 # {'num': 5, 'name': 'Peter', 'id': 2}
@@ -62,3 +62,16 @@ person = {'age': 20, 'name': 'Peter'}
 some_func(person['name'], person['age'])  # Peter is 20 years old
 some_func(**person)  # Peter is 20 years old
 
+# UNPACKING:
+
+
+def get_info(name, town, age):
+    return f'This is {name} from {town}, and he is {age} years old'
+
+
+info = {'name': 'Mike', 'town': 'Sofia', 'age': 20}
+info_2 = ['Mike', 'Sofia', 20]
+print(get_info(**info))  # unpacking dictionary **
+print(get_info(*info_2))  # unpacking  list or tuple *
+# This is Mike from Sofia, and he is 20 years old
+# This is Mike from Sofia, and he is 20 years old
