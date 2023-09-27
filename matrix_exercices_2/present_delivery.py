@@ -5,6 +5,7 @@ neighbourhood = []
 santa_position = []
 total_nice_kids = 0
 nice_kids_with_presents = 0
+
 directions = {
     "up": (-1, 0),
     "down": (1, 0),
@@ -72,3 +73,12 @@ else:
 # down
 # right
 # Christmas morning
+
+# 3
+# 4
+# - - - -
+# V - X -
+# - V C V
+# - - - S
+# left
+# up
