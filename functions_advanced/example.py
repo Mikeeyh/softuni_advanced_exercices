@@ -75,3 +75,23 @@ print(get_info(**info))  # unpacking dictionary **
 print(get_info(*info_2))  # unpacking  list or tuple *
 # This is Mike from Sofia, and he is 20 years old
 # This is Mike from Sofia, and he is 20 years old
+
+
+def sum_nums(*args):
+    print(args)
+
+
+sum_nums(*[el for el in range(0, 10)])  # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# How to return and print a nested function
+
+
+def greeting(name):
+    hello = "Hello, "
+
+    def say_hi():
+        return hello + name
+    return say_hi
+
+
+print(greeting("Peter")())
