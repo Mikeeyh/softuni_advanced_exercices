@@ -1,3 +1,6 @@
+from functools import reduce
+
+
 def operate(operator, *args):
     if operator == "+":
         result = sum(args)
@@ -18,7 +21,39 @@ def operate(operator, *args):
 
 print(operate('/', 1, 2, 3))
 
+# OR -------------------------------------------------------------------
 
 
+def operate(sign, *args):
+    def add():
+        return reduce(lambda a, b: a+b, args)
+
+    def subtract():
+        return reduce(lambda a, b: a-b, args)
+
+    def multiply():
+        return reduce(lambda a, b: a*b, args)
+
+    def divide():
+        return reduce(lambda a, b: a/b, args)
+
+    if sign == "+":
+        return add()
+    elif sign == "-":
+        return subtract()
+    elif sign == "*":
+        return multiply()
+    elif sign == "/":
+        return divide()
 
 
+print(operate('/', 1, 2, 3))
+
+
+# OR ------------------------------------------------------------------------
+
+def operate(sign, *args):
+    return reduce(lambda a, b: eval(f"{a}{sign}{b}"), args)
+
+
+print(operate('/', 1, 2, 3))
