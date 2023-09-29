@@ -10,3 +10,17 @@ def palindrome(word, index=0):
 
 
 print(palindrome("abcba", 0))
+
+# OR ------------------------------------------------------------------
+
+
+def palindrome(word, index):
+    if index == len(word):
+        return f"{word} is a palindrome"
+
+    if word[index] != word[-1 - index]:
+        print(f"{word} is a palindrome")
+    return palindrome(word, index + 1)
+
+
+print(palindrome("abcba", 0))

@@ -36,3 +36,24 @@ def age_assignment(*names, **ages):
 # Example usage:
 print(age_assignment("Alice", "Bob", "Charlie", A=30, B=25, C=35))
 
+
+# OR -----------------------------------------------------------------------
+
+
+def age_assignment(*args, **kwargs):
+    persons = {}
+    for name in args:
+        persons[name] = kwargs[name[0]]
+
+    result = sorted(persons.items(), key=lambda kvp: kvp[0])
+    final_result = []
+
+    for name, age in result:
+        final_result.append(f"{name} is {age} years old.")
+
+    return "\n".join(final_result)
+
+
+# Example usage:
+print(age_assignment("Alice", "Bob", "Charlie", A=30, B=25, C=35))
+
