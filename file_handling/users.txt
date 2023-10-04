@@ -1,1 +1,6 @@
-
+Write
+in
+file
+on
+new
+lines
