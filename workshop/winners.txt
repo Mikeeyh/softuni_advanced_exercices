@@ -1,3 +1,2 @@
 The winner of tour 1 is player 1!
-The winner of tour 1 is player 1!
-The winner of tour 1 is player 1!
+The winner of tour 1 is player 2!

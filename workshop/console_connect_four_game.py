@@ -241,19 +241,23 @@ def on_column_click(column):
     global player
     global tour_played
 
-    try:
-        selected_column_index = column
-        if not is_valid_column_choice(selected_column_index):
-            raise ValueError
+    selected_column_index = column
+    current_row, current_col = place_player_number(selected_column_index, matrix, player)
 
-        current_row, current_col = place_player_number(selected_column_index, matrix, player)
-        print_matrix(matrix)
-    except ValueError:
-        print(f"Player {player}, please select a number between 1 and {COLS}.")
-        return
-    except FullColumnError:
-        print(f"Player {player}, this column is full, please select another one.")
-        return
+    """ We do not use this try-except block because we don't need it while using the tkinter application"""
+    # try:
+    #     selected_column_index = column
+    #     if not is_valid_column_choice(selected_column_index):
+    #         raise ValueError
+    #
+    #     current_row, current_col = place_player_number(selected_column_index, matrix, player)
+    #     print_matrix(matrix)
+    # # except ValueError:
+    # #     print(f"Player {player}, please select a number between 1 and {COLS}.")
+    # #     return
+    # # except FullColumnError:
+    # #     print(f"Player {player}, this column is full, please select another one.")
+    # #     return
 
     if winning_move(matrix, player):
         print(f"The winner is player {player}!")
@@ -308,7 +312,6 @@ tour_played = 0
 
 root = tk.Tk()
 root.title("Console Connect Four - Game")
-root.iconbitmap('game_icon.ico')
 buttons = []
 for i in range(COLS):
     button_row = []
