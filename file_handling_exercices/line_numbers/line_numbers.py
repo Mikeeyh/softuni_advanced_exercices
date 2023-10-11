@@ -2,7 +2,7 @@ from string import punctuation
 
 with open("line_numbers.txt", "r") as file, open("output.txt", "w") as output_file:
     result = []
-    for row, line in enumerate(file):
+    for row, line in enumerate(file, start=1):  # in order to start counting from 1
         letters_count = 0
         punc_count = 0
         for char in line:
@@ -11,7 +11,7 @@ with open("line_numbers.txt", "r") as file, open("output.txt", "w") as output_fi
             elif char in punctuation:
                 punc_count += 1
 
-        result.append(f"Line {row + 1}: {line[:-1]} ({letters_count})({punc_count})")
+        result.append(f"Line {row}: {line[:-1]} ({letters_count})({punc_count})")
     output_file.write('\n'.join(result))
 print('\n'.join(result))
 
