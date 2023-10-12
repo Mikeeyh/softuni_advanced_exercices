@@ -36,6 +36,4 @@ print(pd.DataFrame({
 import sys
 from termcolor import colored, cprint
 
-text = colored("Hello, world", "red", attrs=['bold', 'underline'])
-print(text)
-cprint("Hello, world", "green", "on red")
+cprint("Hello, world", "red", attrs=['bold'], file=sys.stderr)
